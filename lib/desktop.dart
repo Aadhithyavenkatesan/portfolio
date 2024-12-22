@@ -1,5 +1,10 @@
+import 'dart:io';
+import 'dart:html' as html;
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class Desktop extends StatefulWidget {
@@ -8,12 +13,71 @@ class Desktop extends StatefulWidget {
   @override
   State<Desktop> createState() => _DesktopState();
 }
+void downloadFile(Uint8List data, String filename, String mimeType) {
+    final blob = html.Blob([data], mimeType);
+    final url = html.Url.createObjectUrlFromBlob(blob);
+    final anchor = html.AnchorElement()
+      ..href = url
+      ..download = filename
+      ..style.display = 'none';
 
+    html.document.body?.append(anchor);
+    anchor.click();
+   // html.document.body?.removeChild(anchor);
+    html.Url.revokeObjectUrl(url);
+  }
+   // Function to download PDF from assets
+  Future<void> downloadPdfFromAssets() async {
+    try {
+      // Load the PDF file as bytes from the assets folder
+      final ByteData data = await rootBundle.load('assets/Aadhi-resume.pdf');
+      final Uint8List bytes = data.buffer.asUint8List();
+
+      // Trigger the download
+      downloadFile(bytes, 'Aadhi-resume.pdf', 'application/pdf');
+    } catch (e) {
+      print('Error downloading PDF: $e');
+    }
+  }
+class FileDownloader {
+  final Dio dio = Dio();
+
+  /// Downloads a file from a URL and saves it locally.
+  Future<void> downloadFile(String url, String filename) async {
+    try {
+      // Get the local directory to save the file
+      final directory = await getApplicationDocumentsDirectory();
+      final filePath = '${directory.path}/$filename';
+
+      // Use Dio to download the file
+      final response = await dio.download(
+        url,
+        filePath,
+        onReceiveProgress: (received, total) {
+          if (total != -1) {
+            print('Progress: ${(received / total * 100).toStringAsFixed(0)}%');
+          }
+        },
+      );
+
+      if (response.statusCode == 200) {
+        print('File downloaded successfully to: $filePath');
+      } else {
+        print('Failed to download file. Status code: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error downloading file: $e');
+    }
+  }
+}
 class _DesktopState extends State<Desktop> {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
+    final downloader = FileDownloader();
+  const fileUrl = 'https://drive.google.com/file/d/1SmXLKaMhELW9lSuT5trnVBGucmyjN72V/view?usp=sharing'; // Replace with your file URL
+  const fileName = 'Aadhi-resume.pdf';
     return Scaffold(
       backgroundColor: generatedColors().bg,
       body: Stack(
@@ -32,7 +96,7 @@ class _DesktopState extends State<Desktop> {
                   
                   decoration: BoxDecoration(
                     color: generatedColors().yellow,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius:  BorderRadius.only(
                       bottomLeft: Radius.circular(65), 
                       bottomRight: Radius.circular(65)
                       )
@@ -266,7 +330,7 @@ class _DesktopState extends State<Desktop> {
                       color: generatedColors().yellow,
                       borderRadius: const BorderRadius.all(Radius.circular(20))
                     ),
-                    child: Padding(
+                    child: Padding(//Experience content Section
                       padding: const EdgeInsets.symmetric(horizontal: 35.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -277,7 +341,7 @@ class _DesktopState extends State<Desktop> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                  "P S A, Avtec Powertrain Pvt Ltd",
+                                  "P S A, Avtec Powertrain Pvt Ltd,",
                                   style: GoogleFonts.roboto(
                                     fontSize:  w/60,
                                     letterSpacing: 0.5,
@@ -319,6 +383,71 @@ class _DesktopState extends State<Desktop> {
                       ),
                     ),
                   ),
+                ),
+                SizedBox(height: w * 0.05,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 60.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(//Resume
+                        width: w * 0.15,
+                        height: w * 0.045,
+                        child: FloatingActionButton(
+                          onPressed: ()async{
+                            downloadPdfFromAssets();
+                           await downloader.downloadFile(fileUrl, fileName);
+                          },
+                          elevation: 2.0, 
+                          backgroundColor: generatedColors().yellow,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Resume ",
+                                      style: GoogleFonts.poppins(
+                                        fontSize:  w/60,
+                                        letterSpacing: 0.5,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.black
+                                      ),),
+                              Icon(Icons.download_rounded,
+                              color: Colors.black)
+                            ],
+                          )),
+                      ),
+                      Container(
+                        width: w * 0.15,
+                        height: w * 0.045,
+                        child: FloatingActionButton(
+                          onPressed: (){}, 
+                          elevation: 2.0, 
+                          backgroundColor: generatedColors().yellow,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Contact ",
+                                      style: GoogleFonts.poppins(
+                                        fontSize:  w/60,
+                                        letterSpacing: 0.5,
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.black
+                                      ),),
+                              Icon(
+                                Icons.link_rounded,
+                                color: Colors.black,)
+                            ],
+                          )),
+                      ),
+
+                    ],
+                  ),
+                  
+                ),
+                SizedBox(
+                  height: w * 0.045,
                 ),
               ],
             ),

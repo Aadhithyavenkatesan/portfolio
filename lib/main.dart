@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       home: width < 576 ? Mobile() : Desktop(),
     );
