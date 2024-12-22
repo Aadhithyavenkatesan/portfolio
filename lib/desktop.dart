@@ -19,10 +19,13 @@ class _DesktopState extends State<Desktop> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: ScrollController(
+              initialScrollOffset: 1.0
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                Container(//Header Section
                   
                   height:  w/4,
                   width: w,
@@ -44,7 +47,7 @@ class _DesktopState extends State<Desktop> {
                           style: GoogleFonts.poppins(
                             fontSize: w/28,
                             fontWeight: FontWeight.bold,
-                            letterSpacing: w/40
+                            letterSpacing: w/60
                           ),),
                       ),
 
@@ -68,7 +71,14 @@ class _DesktopState extends State<Desktop> {
                               style: GoogleFonts.poppins(
                                 fontSize: w/30,
                                 letterSpacing: 8,
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  BoxShadow(
+                                  color: Colors.black26, 
+                                  blurRadius: 5, 
+                                  offset: Offset(6, 4), 
+              ),
+                                ]
                               ),),
                                             
                       ),
@@ -94,27 +104,27 @@ class _DesktopState extends State<Desktop> {
                   ),
                 ),
                 SizedBox(
-                  height: w * 0.015,
+                  height: w * 0.019,
                 ),
-                Padding(
-                  padding:  EdgeInsets.only(left: w * 0.02),
+                Padding(//About Me Section
+                  padding:  EdgeInsets.only(left: w * 0.045),
                   child: Text(
                     "About Me",
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.montserrat(
                         fontSize: w/60,
-                        letterSpacing: 4,
+                        letterSpacing: 1,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                     )
                   ),
                 ),
                 SizedBox(
-                  height: w * 0.001,
+                  height: w * 0.01,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(25),
+                Padding(//About Me Content Section
+                  padding: const EdgeInsets.symmetric(horizontal: 65),
                   child: Container(
-                    height:  w/4,
+                    height:  w/7.8,
                     width: w,
                     
                     decoration: BoxDecoration(
@@ -127,15 +137,189 @@ class _DesktopState extends State<Desktop> {
                       "I'm a Diploma graduate in Production Engineering (Class of 2024, 94%) with a passion for technology and problem-solving. "
                       "Despite my academic background, I'm deeply enthusiastic about computer science and have hands-on experience with Flutter, AWS, Firebase, VS Code, Git, and version control systems. "
                       "I thrive on challenges and am always eager to learn and innovate.",
-                      style: GoogleFonts.montserrat(
-                        fontSize: w/60,
-                        letterSpacing: 4,
-                        fontWeight: FontWeight.bold,
+                      style: GoogleFonts.openSans(
+                        fontSize: w/70,
+                        //letterSpacing: 1,
+                        fontWeight: FontWeight.w600,
                         color: Colors.black
                       ),),
                     ),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: w * 0.019,
+                ),
+                Padding(//Education Section
+                  padding:  EdgeInsets.only(left: w * 0.045),
+                  child: Text(
+                    "Education",
+                    style: GoogleFonts.montserrat(
+                        fontSize: w/60,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    )
+                  ),
+                ),
+                SizedBox(
+                  height: w * 0.01,
+                ),
+                Padding(//Education content Section
+                  padding: const EdgeInsets.symmetric(horizontal: 65),
+                  child: Container(
+                    height:  w/6.5,
+                    width: w,
+                    
+                    decoration: BoxDecoration(
+                      color: generatedColors().yellow,
+                      borderRadius: const BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 35.0, horizontal: 35),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                              "SSLC, The Gugai Higher Secondary School",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/60,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black
+                              ),),
+                              Text(
+                              "Salem,IN",
+                              style: GoogleFonts.roboto(
+                                fontSize:w/75,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black
+                              ),),
+                            ],
+                          ),
+                          SizedBox(height: w * 0.015,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                              "Diploma in Production Engineering,",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/60,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black
+                              ),),
+                              Text(
+                              "Salem,IN",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/75,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black
+                              ),),
+                            ],
+                          ),
+                          Text(
+                              "Thiagarajar Polytechnic College",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/60,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black
+                              ),),
+                          
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: w * 0.019,
+                ),
+                Padding(//Experience Section
+                  padding:  EdgeInsets.only(left: w * 0.045),
+                  child: Text(
+                    "Experience",
+                    style: GoogleFonts.montserrat(
+                        fontSize: w/60,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    )
+                  ),
+                ),
+                SizedBox(
+                  height: w * 0.01,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 65),
+                  child: Container(
+                    height:  w/9,
+                    width: w,
+                    
+                    decoration: BoxDecoration(
+                      color: generatedColors().yellow,
+                      borderRadius: const BorderRadius.all(Radius.circular(20))
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 35.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                  "P S A, Avtec Powertrain Pvt Ltd",
+                                  style: GoogleFonts.roboto(
+                                    fontSize:  w/60,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.black
+                                  ),),
+                                  Text(
+                                  "Hosur,IN",
+                                  style: GoogleFonts.roboto(
+                                    fontSize:  w/75,
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black
+                                  ),),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                              "C N C Operator",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/60,
+                                letterSpacing: 0.5,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black
+                              ),),
+                              Text(
+                              "May 24 - Present",
+                              style: GoogleFonts.roboto(
+                                fontSize:  w/75,
+                                letterSpacing: 0.5,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black
+                              ),),
+                                ],
+                              )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
