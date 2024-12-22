@@ -27,12 +27,29 @@
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="icons/ic_launcher.png"/>
 
   <title>portfolio</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBrtqbq-3Qbe3r8_jTsP-0dsMqXKO8dHBk",
+  authDomain: "portfolio-e0229.firebaseapp.com",
+  projectId: "portfolio-e0229",
+  storageBucket: "portfolio-e0229.firebasestorage.app",
+  messagingSenderId: "155501649875",
+  appId: "1:155501649875:web:016a4ae11351b752bb9926"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 </body>
 </html>

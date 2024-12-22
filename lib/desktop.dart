@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:portfolio/contactDesk.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class Desktop extends StatefulWidget {
@@ -421,7 +422,12 @@ class _DesktopState extends State<Desktop> {
                         width: w * 0.15,
                         height: w * 0.045,
                         child: FloatingActionButton(
-                          onPressed: (){}, 
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ContactDesk()),
+                              );
+                          }, 
                           elevation: 2.0, 
                           backgroundColor: generatedColors().yellow,
                           child: Row(

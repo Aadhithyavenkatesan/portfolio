@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:portfolio/contactDesk.dart';
+import 'package:portfolio/contactMob.dart';
 import 'package:portfolio/utils/colors.dart';
 
 class Mobile extends StatefulWidget {
@@ -392,7 +394,7 @@ class _MobileState extends State<Mobile> {
                                         fontWeight: FontWeight.normal,
                                         color: Colors.black
                                       ),),
-                              Icon(Icons.download_rounded,
+                              const Icon(Icons.download_rounded,
                               color: Colors.black)
                             ],
                           )),
@@ -402,7 +404,12 @@ class _MobileState extends State<Mobile> {
                         width: w * 0.5,
                         height: w * 0.14,
                         child: FloatingActionButton(
-                          onPressed: (){}, 
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => contactMob()),
+                              );
+                          }, 
                           elevation: 2.0, 
                           backgroundColor: generatedColors().yellow,
                           child: Row(
