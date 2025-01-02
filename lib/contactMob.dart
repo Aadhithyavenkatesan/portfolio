@@ -63,13 +63,13 @@ class _contactMobState extends State<contactMob> {
                           Row(
                             children: [
                               Icon(Icons.mail_outline_rounded,
-                              size: w * 0.035,
+                              size: w * 0.07,
                               color: Colors.white,),
                               SizedBox(height: 15,),
                               Text(" Email : ",
                               style: GoogleFonts.robotoMono(
                                 color: Colors.white,
-                                fontSize: w / 40,
+                                fontSize: w / 22,
                                 letterSpacing: 0.5
                               ),),
                               
@@ -86,21 +86,22 @@ class _contactMobState extends State<contactMob> {
                                 child: Text("aadhithyavenkatesan1@gmail.com ",
                                   style: GoogleFonts.robotoMono(
                                     color: Colors.white,
-                                    fontSize: w / 48,
+                                    fontSize: w / 32.5,
                                     letterSpacing: 0.5,
+                                    fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
                                     decorationColor: const Color.fromARGB(255, 255, 255, 255), // Set color for underline
                                     decorationThickness: 2,
                                   ),),),
                                   SizedBox(width: w * 0.03,),
-                          IconButton(
-                                onPressed: (){
-                                  _copyClipboard(context,"https://www.linkedin.com/in/aadhithya-venkatesan/");
-                                }, 
-                                icon: Icon(
-                                  Icons.copy_rounded,
-                                  size: w * 0.035,
-                                  color: Colors.white)),
+                          // IconButton(
+                          //       onPressed: (){
+                          //         _copyClipboard(context,"https://www.linkedin.com/in/aadhithya-venkatesan/");
+                          //       }, 
+                          //       icon: Icon(
+                          //         Icons.copy_rounded,
+                          //         size: w * 0.035,
+                          //         color: Colors.white)),
                             ],
                           ),
                           
@@ -109,14 +110,14 @@ class _contactMobState extends State<contactMob> {
                             children: [
                               FaIcon(
                                 FontAwesomeIcons.linkedin, // Heart icon
-                                size: w * 0.035,
+                                size: w * 0.07,
                                 color: const Color.fromARGB(255, 255, 255, 255),
                                 ),
                               SizedBox(height: 15,),
                               Text(" Linked In : ",
                               style: GoogleFonts.robotoMono(
                                 color: Colors.white,
-                                fontSize: w / 40,
+                                fontSize: w / 22,
                                 letterSpacing: 1.5
                               ),),
                               
@@ -133,21 +134,22 @@ class _contactMobState extends State<contactMob> {
                                 child: Text("https://www.linkedin.com/in/aadhithya-venkatesan/ ",
                                   style: GoogleFonts.robotoMono(
                                     color: Colors.white,
-                                    fontSize: w / 48,
+                                    fontSize: w / 45,
                                     //letterSpacing: 0.5,
+                                    fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
                                     decorationColor: const Color.fromARGB(255, 255, 255, 255), // Set color for underline
                                     decorationThickness: 2,
                                   ),),),
                                   // SizedBox(width: w * 0.000000001,),
-                                  IconButton(
-                                onPressed: (){
-                                  _copyClipboard(context,"https://www.linkedin.com/in/aadhithya-venkatesan/");
-                                }, 
-                                icon: Icon(
-                                  Icons.copy_rounded,
-                                  size: w * 0.035,
-                                  color: Colors.white))
+                                //   IconButton(
+                                // onPressed: (){
+                                //   _copyClipboard(context,"https://www.linkedin.com/in/aadhithya-venkatesan/");
+                                // }, 
+                                // icon: Icon(
+                                //   Icons.copy_rounded,
+                                //   size: w * 0.035,
+                                //   color: Colors.white))
                             ],
                           ),
                           
@@ -156,7 +158,7 @@ class _contactMobState extends State<contactMob> {
                             children: [
                               FaIcon(
                                 FontAwesomeIcons.github, // Heart icon
-                                size: w * 0.035,
+                                size: w * 0.07,
                                 color: const Color.fromARGB(255, 255, 255, 255),
                                 ),
                                 
@@ -164,7 +166,7 @@ class _contactMobState extends State<contactMob> {
                               Text(" Git Hub : ",
                               style: GoogleFonts.robotoMono(
                                 color: Colors.white,
-                                fontSize: w / 40,
+                                fontSize: w / 22,
                                 letterSpacing: 1.5
                               ),),
                               
@@ -181,21 +183,22 @@ class _contactMobState extends State<contactMob> {
                                 child: Text("https://github.com/Aadhithyavenkatesan",
                                   style: GoogleFonts.robotoMono(
                                     color: Colors.white,
-                                    fontSize: w / 48,
+                                    fontSize: w / 38,
                                     letterSpacing: 0.5,
+                                    fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
                                     decorationColor: const Color.fromARGB(255, 255, 255, 255), // Set color for underline
                                     decorationThickness: 2,
                                   ),),),
                                   SizedBox(width: w * 0.035,),
-                                  IconButton(
-                                onPressed: (){
-                                  _copyClipboard(context,"https://github.com/Aadhithyavenkatesan");
-                                }, 
-                                icon: Icon(
-                                  Icons.copy_rounded,
-                                  size:  w * 0.035,
-                                  color: Colors.white))
+                                //   IconButton(
+                                // onPressed: (){
+                                //   _copyClipboard(context,"https://github.com/Aadhithyavenkatesan");
+                                // }, 
+                                // icon: Icon(
+                                //   Icons.copy_rounded,
+                                //   size:  w * 0.035,
+                                //   color: Colors.white))
                             ],
                           ),
                           
@@ -204,7 +207,7 @@ class _contactMobState extends State<contactMob> {
                             children: [
                               FaIcon(
                                 FontAwesomeIcons.kaggle, // Heart icon
-                                size: w * 0.035,
+                                size: w * 0.07,
                                 color: const Color.fromARGB(255, 255, 255, 255),
                                 ),
                                 
@@ -212,7 +215,7 @@ class _contactMobState extends State<contactMob> {
                               Text(" Kaggle : ",
                               style: GoogleFonts.robotoMono(
                                 color: Colors.white,
-                                fontSize: w / 40,
+                                fontSize: w / 22,
                                 letterSpacing: 1.5
                               ),),
                               
@@ -229,21 +232,22 @@ class _contactMobState extends State<contactMob> {
                                 Text("https://www.kaggle.com/aadhithyavenkatesan",
                                   style: GoogleFonts.robotoMono(
                                     color: Colors.white,
-                                    fontSize:w / 48,
-                                    letterSpacing: 0.5,
+                                    fontSize:w / 38,
+                                    letterSpacing: 0,
+                                    fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
                                     decorationColor: const Color.fromARGB(255, 255, 255, 255), // Set color for underline
                                     decorationThickness: 2,
                                   ),),
                                   //SizedBox(width: w * 0.0000055,),
-                                  IconButton(
-                                onPressed: (){
-                                  _copyClipboard(context,"https://www.kaggle.com/aadhithyavenkatesan");
-                                }, 
-                                icon: Icon(
-                                  Icons.copy_rounded,
-                                  size:  w * 0.035,
-                                  color: Colors.white))
+                                //   IconButton(
+                                // onPressed: (){
+                                //   _copyClipboard(context,"https://www.kaggle.com/aadhithyavenkatesan");
+                                // }, 
+                                // icon: Icon(
+                                //   Icons.copy_rounded,
+                                //   size:  w * 0.035,
+                                //   color: Colors.white))
                               ],
                             ),),
                           

@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      home:width < 576 ? Mobile() : Desktop(),
+       home:width < 576 ? Mobile() : Desktop(),
     );
   }
 }
